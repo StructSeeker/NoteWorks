@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"myriad-dreamin.tinymist",
+			"orangex4.vscode-typst-sync",
+			"surv.typst-math",
+			"analytic-signal.preview-pdf"
+		]
+	}
+}
