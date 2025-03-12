@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"markdown-image.base.uploadMethod": "Imgur",
+		"markdown-image.imgur.clientId": "aab38b9092c2552",
+		"markdown-image.base.uploadMethods": [
+			"Imgur"
+		],
+	},
+	"extensions": {
+		"recommendations": [
+			"myriad-dreamin.tinymist",
+			"orangex4.vscode-typst-sync",
+			"surv.typst-math",
+			"analytic-signal.preview-pdf",
+			"solidtux.zotero-for-typst",
+			"vsls-contrib.gistfs",
+			"hancel.markdown-image", // provide markdown image upload
+			"dzylikecode.md-paste-enhanced" // provide typst paste
+		]
+	}
+}
