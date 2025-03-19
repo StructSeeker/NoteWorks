@@ -5,6 +5,8 @@
 		}
 	],
 	"settings": {
+		"pasteImage.basePath": "${currentFileDir}/images",
+		
 		"markdown-image.base.uploadMethod": "Imgur",
 		"markdown-image.imgur.clientId": "aab38b9092c2552",
 		"markdown-image.base.uploadMethods": [

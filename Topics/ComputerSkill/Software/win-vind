@@ -1,0 +1,22 @@
+```.vindrc
+# vim-like navigation
+
+nmap <ctrl-i> <to_insert>
+vmap <ctrl-i> <to_insert>
+" Press Ctrl-I to enter insert mode without clicking.
+
+nmap <ctrl-'> <to_resident>
+imap <ctrl-'> <to_resident>
+rmap <ctrl-'> <to_insert>
+" Allow using icapslock to switch between resident and insert  
+
+gvmap v <to_gui_normal>
+evmap v <to_edi_normal>
+
+gvmap <ctrl-m> <gridmove>
+gvmap Fh <easyclick>
+gvmap a <click_right>
+gvmap o <click_left>
+
+
+```
