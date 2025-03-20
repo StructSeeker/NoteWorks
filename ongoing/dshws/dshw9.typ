@@ -50,19 +50,19 @@
     "dpb"[i] = cases(delim:"|", "the total number of coloring schemes for the matrix from row 1 to row i", "such that" matrix[i, 1]."color" = matrix[i, 3]."color") \
     "dpa"[i] = cases(delim:"|", "the total number of coloring schemes for the matrix from row 1 to row i", "such that" matrix[i, 1]."color" eq.not matrix[i, 3]."color")
   $
-  Using A, B, C, to represent a permutation of the RGB colors (the B here is not Blue), note there're are only finite numbers of coloring scheme on row $i$ and row $i+1$:
+  Using A, B, C, to represent a permutation of the RGB colors (the B here is not Blue), note there're are only finite numbers of coloring scheme on row $i$ and row $i+1$; The i-th row A, B, C stands for a coloring  schemes counts toward $dpa$, and A, B, A counts towards $dpb$; so the number of coloring schemes and thus be calculated recursively:
   $
     mat(A, B, C; B, C, A), mat(A, B, C; C, A, B); mat(A, B, A; C, A, B)\
     "dpa"[i+1] = "dpa"[i] dot 2 + "dpb"[i] \
     mat(A, B, C; B, A, B); mat(A, B, A; B, A, B), mat(A, B, A; B, C, B), mat(A, B, A; C, A, C) \
     "dpb"[i+1] = "dpa"[i] + "dpb"[i] dot 3 \
     "dp"[i+1] = mat("dpa"[i+1]; "dpb"[i+1]) = mat(2, 1; 1, 3) mat("dpa"[i]; "dpb"[i])  \
-    "dp"[n] = mat("dpa"[i+1]; "dpb"[i+1]) = mat(2, 1; 1, 3)^(n-1) mat("dpa"[0]; "dpb"[0]) \    
+    "dp"[n] = mat("dpa"[i+1]; "dpb"[i+1]) = mat(2, 1; 1, 3)^(n-1) mat("dpa"[1]; "dpb"[1]) \    
   $
   Now we only need to calculate the base cases:
   $
-    "dpa[0]" = "Permutation of 3 colors" = 3! = 6 \
-    "dpb[0]" = "Select a pair of two color from 3" = 3*2 = 6 \
+    "dpa[1]" = "Permutation of 3 colors" = 3! = 6 \
+    "dpb[1]" = "Select a pair of two color from 3" = 3*2 = 6 \
     "dp"[n] = mat("dpa"[i+1]; "dpb"[i+1]) = mat(2, 1; 1, 3)^(n-1) mat(6; 6) 
   $
   
@@ -81,11 +81,11 @@
 ]
 
 #answer[
-  Note that a string with length $n$ have n+1 possible cursor position $(0...n)$, define and observe the recursvie relation and auxiliary data field for $0 lt.eq i < j lt.eq n$:
+  Note that a string with length $n$ have n+1 possible cursor position $(0...n)$; since the optimal score for $"str"[i, j]$ is the max among the sum of any spliting between $i, j$ or the nonspliting, we can define and observe the recursvie relation and auxiliary data field for $0 lt.eq i < j lt.eq n$,:
   $
-    dp[i, j].score &= max cases(dp[i, k].score + dp[k, j].score "where" i < k < j, score("word"[i, j]) ) \
+    dp[i, j].score &= max cases(dp[i, k].score + dp[k, j].score "where" i < k < j, score("str"[i, j]) ) \
     dp[i, j].split &= cases("the above" k "that maximize the score if exists", "none if no such k exists") \  
-    dp[i, i+1].score &= score("word"[i, i+1]) \
+    dp[i, i+1].score &= score("str"[i, i+1]) \
     dp[i, i+1].split &= "none"\
     dp[i, j].score &= "max possible score among all spliting between i-th and j-th cursor" \
     dp[i, j].split &= "a split used for max score" \ 
@@ -105,9 +105,9 @@
 ]
 
 #answer[
-  Let $dp[i, j, k]$ denote the length of common longest sequence among $A[1...i]$, $B[1...j]$, $C[1...k]$, observe the following recursive relation:
+  Let $dp[i, j, k]$ denote the length of common longest sequence among $A[1...i]$, $B[1...j]$, $C[1...k]$, observe that the longest subsequences for $A[1...i+1], B[1...j+1], C[1...k+1]$ either (1) has $A[i+1], B[j+1], C[k+1]$ as the last character of longest common sequence; or (2) one of $A[1...i+1], B[1...j+1], C[1...k+1]$'s last character is not the last character of the longest common sequence, which leads to the following recursive relation:
   $
-    dp[i + 1, j + 1, k + 1] = max cases(dp[i, j, k] + 1 "only if" A[i] = B[j] = C[k],
+    dp[i + 1, j + 1, k + 1] = max cases("if" A[i] = B[j] = C[k] "then" dp[i, j, k] + 1 "else" 0,
     dp[i, j + 1, k + 1], dp[i + 1, j, k + 1], dp[i + 1, j + 1, k ]) \
     dp[0, j, k] = dp[i, 0, k] = dp[i, j, 0] = 0 \
   $
