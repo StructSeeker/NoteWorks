@@ -115,6 +115,29 @@ Complexity is less than the proportion of $O(min(sum R_i, sum C_j) m n)$ and is 
 ]
 
 #answer[
+  Example: Let $n = 3$
+  $
+    S_1 = {p_1, p_2}, S_2 = S_3 = {p_3}
+  $
+  The only valid test set is ${(l_1, p_1), (l_1, p_2), (l_2, p_3), (l_3, p_3)}$
+
+  To solve the problem, we can formulate the problem as a minimum edge cover problem, i.e. choose a set of edges such that each vertice is adjacent to one of the edges.
+  We can design bipartite graph:
+  $
+      l_(i in [n]), p_(i in [n]) "are vertices" \
+      l_i, p_j "are connected if and only if" p_j in S_i 
+  $
+
+  Now we can further reduce the minimum edge problem to a max matching problem, note that a minimum edge cover can be obtained by adding edges into max-matching edge set greedily (i.e. adding one edge covering a new vertice). The obtained covering is indeed minimum, because its size $
+  = "the size of maximum-matching edge set" \ 
+  + "number of vertices not covered in maximum matching"
+  $
+  note that one less edge in maximum matching will contribute two vertices not covered by matching, meaning all other edge cover is of larger size.
+
+  Now we can further reduce the max matching problem to network flow: Add source connected to $l_(i in [n])$ and sink connected to $p_(j in [n])$. Let capacity for all edges be 1, apply ford-fulkerson algorihtm to obtain max-flow $f$. Let $M$ be the flowing edges in $f$, apply greedily algorithm mentioned above to find a minimum edge cover, if the size of minimum edge cover is not greater than $k$, then the problem has a solution.
+
+  The time cost is polynomial because ford-fulkerson is polynomial and the greedy process of adding edges is $O(n^2)$
+
 
   
 ]
