@@ -12,4 +12,18 @@ const createElement = (doc, tag, attrs) => {
 };
 ```
 
+=== A lambda that rembember this
+```java
+const obj = Reflect.apply(
+  function () {
+    this.x = 3;
+    this.fn = () => this.x;
+    return this;
+  },
+  Object(),
+  []
+);
+
+```
+
 

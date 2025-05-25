@@ -1,6 +1,0 @@
-
-
-
-
-
-#bibliography("ref.bib")
