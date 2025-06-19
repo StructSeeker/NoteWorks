@@ -4,7 +4,7 @@
 
 == Setup Perference Variable 
 ```pwsh
-$PSNativeCommandUseErrorActionPreference =$true
+$PSNativeCommandUseErrorActionPreference = $true
 $WhatIfPreference = $true # -WhatIf:$false to override
 ```
 

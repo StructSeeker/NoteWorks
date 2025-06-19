@@ -13,7 +13,7 @@ const createElement = (doc, tag, attrs) => {
 ```
 
 === A lambda that rembember this
-```java
+```js
 const obj = Reflect.apply(
   function () {
     this.x = 3;
@@ -23,7 +23,34 @@ const obj = Reflect.apply(
   Object(),
   []
 );
+```
+
+=== Scroll to tag with certain events.
+```js
+Array.from(document.querySelectorAll("span") ).
+  map(x => [x, getEventListeners(x)]).
+  filter(obj => 'click' in obj[1])[0][0].scrollIntoView()
+```
+
+
+=== Destructure Argument in function 
+```js
+const fn = ([_x, y]) => y;
+const fn = ({_x, y = 3}) => y;
 
 ```
 
 
+== Create a list of scripts
+```js
+		[
+			['https://hypothes.is/embed.js', true],
+			// ['document.body.style.position = "static";', false],
+		].forEach(function (arg) {
+			let [src, urlQ] = arg;
+			var script = document.createElement('script');
+			script[(urlQ ? "src" : "text")] = src;
+			script.async = false
+			document.head.appendChild(script);
+		});
+```
