@@ -18,12 +18,12 @@
 			"myriad-dreamin.tinymist",
 			"orangex4.vscode-typst-sync",
 			"surv.typst-math",
-			"analytic-signal.preview-pdf",
 			// "solidtux.zotero-for-typst",
 			"vsls-contrib.gistfs",
 			"hancel.markdown-image", // provide markdown image upload
 			"dzylikecode.md-paste-enhanced",
-			"thild.referencite" // provide typst paste
+			"thild.referencite",
+			"calebfiggers.typst-companion" // provide typst paste
 		]
 	}
 }

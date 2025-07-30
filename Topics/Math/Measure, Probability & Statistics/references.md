@@ -30,6 +30,8 @@ Real analysis for graduate student ver4.3
 概率和鞅
 
 ## Statistics
+高等统计学概论
+高等数理统计学
 Multivariate Statistics A Vector Space Approach
 A STRUCTURAL APPROACH TO COORDINATE-FREE STATISTICS  
 Coordinate-Free Multivariable Statistics
@@ -41,8 +43,7 @@ The Coordinate-Free Approach to Linear Models
 The Theory of Linear Models
 Theoretical Statistics Topics for a Core Course-Springer-Verlag New York (2010)
 Theory of statistics
-高等数理统计学
-高等统计学概论
+
 
 Entropy and information theory  
 递归论算法与随机性基础
