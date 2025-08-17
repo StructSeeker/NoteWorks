@@ -1,5 +1,12 @@
+# Reading 
+Handbook of Analysis and its Foundations
+Probability Theory A Comprehensive Course  
+Mathematical Statistics  
+Theoreticl Statistics Topics for a Core Course
+Multivariate Statistics A Vector Space Approach  
 
-# Measure Theory:  
+
+## Measure Theory:  
 Measure and Integration Hari Bercovici  
 Measure, Integration and a Primer on Probability Theory  
 Measure Theory Vladimir  
